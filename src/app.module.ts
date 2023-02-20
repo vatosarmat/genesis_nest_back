@@ -5,7 +5,8 @@ import { AppController } from './app.controller'
 import { ContactsModule } from './contacts/contacts.module'
 import { LeadsModule } from './leads/leads.module'
 import { CompaniesModule } from './companies/companies.module'
-import { AllExceptionFilter } from './shared/exception-filter'
+import { AllExceptionFilter } from './exception-filter'
+import { AmoModule } from './amo/amo.module'
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AllExceptionFilter } from './shared/exception-filter'
     ContactsModule,
     LeadsModule,
     CompaniesModule,
+    AmoModule,
   ],
   controllers: [AppController],
   providers: [

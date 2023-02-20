@@ -1,17 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { CreateContactDto } from './dto/create-contact.dto'
 
-import { randomError } from '../shared/utils'
+import { AmoService } from '../amo/amo.service'
 
 @Injectable()
 export class ContactsService {
-  private idCounter = 1
+  constructor(private amoService: AmoService) {}
+
   create(createContactDto: CreateContactDto) {
-    randomError()
-    return {
-      id: this.idCounter++,
-      name: createContactDto.name,
-      created_at: Date.now(),
-    }
+    return this.amoService.createContact(createContactDto)
   }
 }

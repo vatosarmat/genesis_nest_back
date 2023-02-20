@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { useRequestLogging } from 'src/shared/logging'
+import { useRequestLogging } from './logging'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

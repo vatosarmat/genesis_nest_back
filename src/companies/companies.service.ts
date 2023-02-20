@@ -1,17 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { CreateCompanyDto } from './dto/create-company.dto'
 
-import { randomError } from '../shared/utils'
+import { AmoService } from '../amo/amo.service'
 
 @Injectable()
 export class CompaniesService {
-  private idCounter = 1
+  constructor(private amoService: AmoService) {}
+
   create(createCompanyDto: CreateCompanyDto) {
-    randomError()
-    return {
-      id: this.idCounter++,
-      name: createCompanyDto.name,
-      created_at: Date.now(),
-    }
+    return this.amoService.createCompany(createCompanyDto)
   }
 }
